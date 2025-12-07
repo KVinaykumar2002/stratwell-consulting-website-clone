@@ -41,20 +41,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <StatisticsSection />
-      <div className="container">
-        <div className="h-px bg-border my-20" />
-      </div>
       <ServicesSection />
-      <div className="container">
-        <div className="h-px bg-border my-20" />
-      </div>
-      <FeatureSection />
-      <div className="container">
-        <div className="h-px bg-border my-20" />
-      </div>
-      <CaseStudies />
-     
-      <TeamCommunitySection />
+      <FeatureSection />     
       <div className="py-8 overflow-visible">
         <CurvedLoop 
           marqueeText="Welcome to TechnoRealm ✦"
@@ -64,11 +52,7 @@ export default function Home() {
           interactive={true}
         />
       </div>
-      <AboutSection />
       <FeaturesAccordionSection />
-      <ExpertiseShowcaseSection />
-      <ApproachSection />
-      <GlobalReachSection />
       <GlobalNetworkSection />
       <TrustedBy />
       <Testimonials />
