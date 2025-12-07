@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Header from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
 import StatisticsSection from "@/components/sections/statistics";
@@ -10,24 +13,34 @@ import ApproachSection from "@/components/sections/approach";
 import TrustedBy from "@/components/sections/trusted-by";
 import CtaFinal from "@/components/sections/cta-final";
 import Footer from "@/components/sections/footer";
-import IntegrationsSection from "@/components/sections/integrations";
 import TeamCommunitySection from "@/components/sections/team-community";
 import ExpertiseShowcaseSection from "@/components/sections/expertise-showcase";
 import GlobalReachSection from "@/components/sections/global-reach";
 import GlobalNetworkSection from "@/components/sections/global-network";
 import FeaturesAccordionSection from "@/components/sections/features-accordion";
 import CurvedLoop from "@/components/CurvedLoop";
+import { NeonOrbs } from "@/components/ui/neon-orbs";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <NeonOrbs />;
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
       <StatisticsSection />
-      <div className="container">
-        <div className="h-px bg-border my-20" />
-      </div>
-      <IntegrationsSection />
       <div className="container">
         <div className="h-px bg-border my-20" />
       </div>
