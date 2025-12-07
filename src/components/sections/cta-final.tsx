@@ -40,11 +40,19 @@ const CtaFinal = () => {
         </p>
         <Link
           href="/contact"
-          className="mt-2 inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-medium text-primary-navy transition-colors hover:bg-neutral-200"
+          className="group relative mt-2 inline-flex items-center h-14 px-6 rounded-2xl bg-white text-primary-navy overflow-hidden font-medium transition-all duration-300"
         >
-          <span className="text-base">Get Started Today</span>
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#EAEFF5]">
-            <ArrowRight className="h-4 w-4 text-primary-navy" />
+          {/* Overlay animation from left to right */}
+          <span className="absolute inset-0 bg-[#2639ED] transform origin-left -translate-x-full transition-transform duration-500 ease-in-out group-hover:translate-x-0 rounded-2xl"></span>
+          
+          {/* Text - changes to white on hover */}
+          <span className="relative z-10 text-base leading-none transition-colors duration-300 delay-100 group-hover:text-white mr-3">
+            Get Started Today
+          </span>
+          
+          {/* Blue circle with arrow - aligned next to text */}
+          <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-[#2639ED] rounded-full transition-all duration-300 group-hover:bg-[#1B28C3] group-hover:translate-x-1">
+            <ArrowRight className="w-4 h-4 text-white" />
           </div>
         </Link>
       </motion.div>

@@ -79,10 +79,18 @@ const CtaCard = () => {
         <h3 className="font-display text-[32px] font-semibold leading-[1.3] text-white">
           Start Your <em className="italic">Growth</em> Journey
         </h3>
-        <Link href="/contact" className="group/button inline-flex items-center justify-center bg-white text-foreground rounded-xl h-14 pl-6 pr-[60px] relative text-button font-medium transition-colors hover:bg-secondary">
-          <span>Get in Touch</span>
-          <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground rounded-[10px] transition-transform duration-300 ease-in-out group-hover/button:translate-x-1">
-            <ArrowRight className="w-4 h-4" />
+        <Link href="/contact" className="group/button relative inline-flex items-center bg-white text-foreground rounded-2xl h-14 pl-6 overflow-hidden text-button font-medium transition-all duration-300">
+          {/* Overlay animation from left to right */}
+          <span className="absolute inset-0 bg-[#2639ED] transform origin-left -translate-x-full transition-transform duration-500 ease-in-out group-hover/button:translate-x-0 rounded-2xl"></span>
+          
+          {/* Text - changes to white on hover */}
+          <span className="relative z-10 leading-none transition-colors duration-300 delay-100 group-hover/button:text-white mr-3">
+            Get in Touch
+          </span>
+          
+          {/* Blue circle with arrow - aligned next to text */}
+          <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-[#2639ED] rounded-full transition-all duration-300 group-hover/button:bg-[#1B28C3] group-hover/button:translate-x-1">
+            <ArrowRight className="w-4 h-4 text-white" />
           </div>
         </Link>
       </div>

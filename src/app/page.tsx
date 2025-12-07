@@ -13,6 +13,7 @@ import IntegrationsSection from "@/components/sections/integrations";
 import TeamCommunitySection from "@/components/sections/team-community";
 import ExpertiseShowcaseSection from "@/components/sections/expertise-showcase";
 import GlobalReachSection from "@/components/sections/global-reach";
+import CurvedLoop from "@/components/CurvedLoop";
 
 export default function Home() {
   return (
@@ -34,6 +35,15 @@ export default function Home() {
       <CaseStudies />
       <Testimonials />
       <TeamCommunitySection />
+      <div className="py-8 overflow-visible">
+        <CurvedLoop 
+          marqueeText="Welcome to TechnoRealm ✦"
+          speed={3}
+          curveAmount={500}
+          direction="right"
+          interactive={true}
+        />
+      </div>
       <AboutSection />
       <ExpertiseShowcaseSection />
       <ApproachSection />

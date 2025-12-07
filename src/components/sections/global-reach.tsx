@@ -166,11 +166,21 @@ export default function GlobalReachSection() {
               ensuring flexible consulting solutions that adapt to your business needs.
             </p>
 
-            <button className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-hover-blue transition-all text-button group mb-8">
-              Learn more
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+            <button className="group relative inline-flex items-center h-14 px-6 bg-[#2639ED] text-white rounded-2xl overflow-hidden transition-all duration-300 text-button mb-8">
+              {/* Overlay animation from left to right - darker blue */}
+              <span className="absolute inset-0 bg-[#1B28C3] transform origin-left -translate-x-full transition-transform duration-500 ease-in-out group-hover:translate-x-0 rounded-2xl"></span>
+              
+              {/* Text */}
+              <span className="relative z-10 leading-none transition-colors duration-300 delay-100 mr-3">
+                Learn more
+              </span>
+              
+              {/* Blue circle with arrow - aligned next to text */}
+              <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-white/20 rounded-full transition-all duration-300 group-hover:bg-white/30 group-hover:translate-x-1">
+                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </button>
 
             <div className="flex items-start gap-4 bg-white p-6 rounded-2xl shadow-lg border border-border">

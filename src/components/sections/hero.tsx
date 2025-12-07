@@ -43,10 +43,20 @@ export default function HeroSection() {
             </p>
             <a
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 py-4 text-base font-medium leading-none text-primary-navy transition-colors hover:bg-secondary"
+              className="group relative inline-flex items-center h-14 px-6 rounded-2xl bg-white text-primary-navy overflow-hidden transition-all duration-300"
             >
-              <span>Book a Consultation</span>
-              <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
+              {/* Overlay animation from left to right */}
+              <span className="absolute inset-0 bg-[#2639ED] transform origin-left -translate-x-full transition-transform duration-500 ease-in-out group-hover:translate-x-0 rounded-2xl"></span>
+              
+              {/* Text - changes to white on hover */}
+              <span className="relative z-10 font-medium text-base leading-none transition-colors duration-300 delay-100 group-hover:text-white mr-3">
+                Book a Consultation
+              </span>
+              
+              {/* Blue circle with arrow - aligned next to text */}
+              <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-[#2639ED] rounded-full transition-all duration-300 group-hover:bg-[#1B28C3] group-hover:translate-x-1">
+                <ArrowRight className="w-4 h-4 text-white" />
+              </div>
             </a>
           </motion.div>
         </div>

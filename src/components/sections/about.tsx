@@ -144,10 +144,20 @@ export default function AboutSection() {
               </p>
               <a
                 href="#"
-                className="inline-flex items-center justify-center gap-2.5 bg-[#0F1828] text-white text-base font-medium py-4 px-6 rounded-xl hover:bg-[#0F1828]/90 transition-colors"
+                className="group relative inline-flex items-center h-14 px-6 bg-[#0F1828] text-white rounded-2xl overflow-hidden text-base font-medium transition-all duration-300"
               >
-                Meet Our Team
-                <ArrowRight className="h-4 w-4" />
+                {/* Overlay animation from left to right - primary blue */}
+                <span className="absolute inset-0 bg-[#2639ED] transform origin-left -translate-x-full transition-transform duration-500 ease-in-out group-hover:translate-x-0 rounded-2xl"></span>
+                
+                {/* Text */}
+                <span className="relative z-10 leading-none transition-colors duration-300 delay-100 mr-3">
+                  Meet Our Team
+                </span>
+                
+                {/* Blue circle with arrow - aligned next to text */}
+                <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-[#2639ED] rounded-full transition-all duration-300 group-hover:bg-[#1B28C3] group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </div>
               </a>
             </div>
           </motion.div>

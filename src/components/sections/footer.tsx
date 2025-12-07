@@ -5,20 +5,7 @@ import Link from "next/link";
 import { SparklesPreview } from "@/components/ui/sparkles-preview";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
-
-const FramerLogoIcon = () => (
-  <svg
-    width="12"
-    height="18"
-    viewBox="0 0 12 18"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="absolute left-[10px] top-1/2 -translate-y-1/2"
-    aria-hidden="true"
-  >
-    <path d="M0 0H12V6H6V12H12V18H0V0Z" fill="black" />
-  </svg>
-);
+import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -105,9 +92,20 @@ const Footer = () => {
 
               <Link
                 href="/contact"
-                className="inline-block mt-8 bg-white text-black px-6 py-3 rounded-xl"
+                className="group relative inline-flex items-center h-14 px-6 mt-8 bg-white text-black rounded-2xl overflow-hidden transition-all duration-300"
               >
-                Contact Us
+                {/* Overlay animation from left to right - using primary blue */}
+                <span className="absolute inset-0 bg-[#2639ED] transform origin-left -translate-x-full transition-transform duration-500 ease-in-out group-hover:translate-x-0 rounded-2xl"></span>
+                
+                {/* Text - changes to white on hover */}
+                <span className="relative z-10 font-medium text-base leading-none transition-colors duration-300 delay-100 group-hover:text-white mr-3">
+                  Enquiry Now
+                </span>
+                
+                {/* Blue circle with arrow - aligned next to text */}
+                <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-[#2639ED] rounded-full transition-all duration-300 group-hover:bg-[#1B28C3] group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </div>
               </Link>
             </div>
 
@@ -176,15 +174,6 @@ const Footer = () => {
             <a href="#">T&C</a>
             <a href="#">Built in Framer</a>
           </div>
-
-          <a
-            href="https://www.framer.com"
-            target="_blank"
-            className="relative bg-white text-black px-4 py-2 rounded-lg"
-          >
-            <FramerLogoIcon />
-            Made in Framer
-          </a>
         </div>
       </div>
 
