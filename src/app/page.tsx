@@ -2,6 +2,7 @@ import Header from "@/components/sections/header";
 import HeroSection from "@/components/sections/hero";
 import StatisticsSection from "@/components/sections/statistics";
 import ServicesSection from "@/components/sections/services";
+import FeatureSection from "@/components/ui/stack-feature-section";
 import CaseStudies from "@/components/sections/case-studies";
 import Testimonials from "@/components/sections/testimonials";
 import AboutSection from "@/components/sections/about";
@@ -29,6 +30,10 @@ export default function Home() {
         <div className="h-px bg-border my-20" />
       </div>
       <ServicesSection />
+      <div className="container">
+        <div className="h-px bg-border my-20" />
+      </div>
+      <FeatureSection />
       <div className="container">
         <div className="h-px bg-border my-20" />
       </div>
