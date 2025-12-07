@@ -33,7 +33,7 @@ export default function Home() {
         <div className="h-px bg-border my-20" />
       </div>
       <CaseStudies />
-      <Testimonials />
+     
       <TeamCommunitySection />
       <div className="py-8 overflow-visible">
         <CurvedLoop 
@@ -49,6 +49,7 @@ export default function Home() {
       <ApproachSection />
       <GlobalReachSection />
       <TrustedBy />
+      <Testimonials />
       <div className="container px-6 pb-20">
         <CtaFinal />
       </div>

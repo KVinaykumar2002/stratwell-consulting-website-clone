@@ -1,141 +1,109 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Play } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { TestimonialsColumn, type Testimonial } from "@/components/ui/testimonials-columns-1";
+import { motion } from "motion/react";
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
-    name: 'Vika Nightshade',
-    title: 'Founder, Retail Group',
-    quote: '"Their expertise gave us the clarity to make smarter decisions and accelerate growth in record time."',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/9b84987e-5fc0-480d-bd08-54bddc2234ce-stratwell-consulting-framer-website/assets/images/DCBDjx44AuCf5b4Sop3JY4cfSw8-5.jpg',
+    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
+    name: "Briana Patton",
+    role: "Operations Manager",
   },
   {
-    name: 'Mike Scott',
-    title: 'CEO, Tech',
-    quote: '"Stratwell gave us clarity when we needed it most—and results that exceeded expectations."',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/9b84987e-5fc0-480d-bd08-54bddc2234ce-stratwell-consulting-framer-website/assets/images/EbuEIRSFMZqqEnQCuigsuqBXRM-6.jpg',
+    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    name: "Bilal Ahmed",
+    role: "IT Manager",
   },
   {
-    name: 'Anna White',
-    title: 'COO, Retail Group',
-    quote: '"Working with them gave us back valuable time, reduced expenses, and simplified everything."',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/9b84987e-5fc0-480d-bd08-54bddc2234ce-stratwell-consulting-framer-website/assets/images/4b4JmjE93g5ut9rRkQ1ByyXbGE-7.jpg',
+    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    name: "Saman Malik",
+    role: "Customer Support Lead",
   },
   {
-    name: 'Marlo Fentris',
-    title: 'CEO, Construction',
-    quote: '"Their expertise gave us the clarity to make smarter decisions and accelerate growth in record time."',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/9b84987e-5fc0-480d-bd08-54bddc2234ce-stratwell-consulting-framer-website/assets/images/bD8BwLEuwK8d4LOSQvuCWMi0pUo-8.jpg',
+    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+    name: "Omar Raza",
+    role: "CEO",
   },
   {
-    name: 'John Ravenwood',
-    title: 'Co-Owner, Manufacturing Firm',
-    quote: '"What impressed us most was how quickly their strategies turned into real results across the business."',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/9b84987e-5fc0-480d-bd08-54bddc2234ce-stratwell-consulting-framer-website/assets/images/oaP8cA7xInnmwqPQJtdh4s6ipbY-9.jpg',
+    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
+    name: "Zainab Hussain",
+    role: "Project Manager",
+  },
+  {
+    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face",
+    name: "Aliza Khan",
+    role: "Business Analyst",
+  },
+  {
+    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
+    name: "Farhan Siddiqui",
+    role: "Marketing Director",
+  },
+  {
+    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop&crop=face",
+    name: "Sana Sheikh",
+    role: "Sales Manager",
+  },
+  {
+    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
+    name: "Hassan Ali",
+    role: "E-commerce Manager",
   },
 ];
 
-const TestimonialCard = ({
-  name,
-  title,
-  quote,
-  image,
-}: {
-  name: string;
-  title: string;
-  quote: string;
-  image: string;
-}) => (
-  <div className="relative w-[280px] h-[400px] rounded-3xl overflow-hidden flex-shrink-0 shadow-[0_4px_24px_rgba(15,24,40,0.08)]">
-    <Image
-      src={image}
-      alt={`Portrait of ${name}`}
-      fill
-      className="object-cover"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,24,40,0.8)] via-[rgba(15,24,40,0.4)] to-transparent" />
-    <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-      <p className="text-lg leading-snug mb-6">{quote}</p>
-      <div className="flex items-start justify-between">
-        <div>
-          <h4 className="font-semibold text-lg">{name}</h4>
-          <p className="text-sm text-white/80">{title}</p>
-        </div>
-        <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform duration-300">
-          <Play className="w-5 h-5 text-primary-navy fill-primary-navy ml-1" />
-        </button>
-      </div>
-    </div>
-  </div>
-);
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
 
-export default function Testimonials() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let scrollAmount = 0;
-    const cardWidth = 280;
-    const gap = 24;
-    const scrollSpeed = 0.5;
-    const totalWidth = testimonials.length * (cardWidth + gap);
-
-    const scroll = () => {
-      if (!isPaused && scrollContainer) {
-        scrollAmount += scrollSpeed;
-        
-        if (scrollAmount >= totalWidth) {
-          scrollAmount = 0;
-        }
-        
-        scrollContainer.style.transform = `translateX(-${scrollAmount}px)`;
-      }
-      requestAnimationFrame(scroll);
-    };
-
-    const animationId = requestAnimationFrame(scroll);
-
-    return () => cancelAnimationFrame(animationId);
-  }, [isPaused]);
-
+const Testimonials = () => {
   return (
-    <section className="bg-primary-navy text-text-light py-24 sm:py-32 overflow-hidden">
-      <div className="container mx-auto px-6 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2.5 rounded-full bg-accent px-4 py-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-          <p className="text-primary text-label-badge">TESTIMONIALS</p>
-        </div>
-        <h2 className="mt-4 font-display text-5xl leading-tight md:text-6xl">
-          What Our Clients Say
-        </h2>
-      </div>
-      <div 
-        className="mt-20"
-        style={{
-          maskImage: 'linear-gradient(to right, transparent, black 128px, black calc(100% - 128px), transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 128px, black calc(100% - 128px), transparent)',
-        }}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        <div 
-          ref={scrollRef}
-          className="flex gap-6 w-max"
-          style={{ willChange: 'transform' }}
+    <section className="bg-background my-20 relative">
+      <div className="container z-10 mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
         >
-          {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
-            <TestimonialCard
-              key={`${testimonial.name}-${index}`}
-              {...testimonial}
-            />
-          ))}
+          <div className="flex justify-center">
+            <div className="border py-1 px-4 rounded-lg">Testimonials</div>
+          </div>
+
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
+            What our users say
+          </h2>
+          <p className="text-center mt-5 opacity-75">
+            See what our customers have to say about us.
+          </p>
+        </motion.div>
+
+        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
+          <TestimonialsColumn
+            testimonials={secondColumn}
+            className="hidden md:block"
+            duration={19}
+          />
+          <TestimonialsColumn
+            testimonials={thirdColumn}
+            className="hidden lg:block"
+            duration={17}
+          />
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Testimonials;
+
