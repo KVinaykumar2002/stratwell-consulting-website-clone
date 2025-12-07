@@ -55,7 +55,7 @@ export default function FeatureSection() {
   return (
     <section className="relative w-full my-32 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between min-h-[30rem] border border-border bg-card overflow-hidden rounded-3xl">
       {/* Left side: Heading and Text */}
-      <div className="w-full md:w-1/2 z-10 py-10 md:py-0">
+      <div className="w-half md:w-1/2 z-10 py-10 md:py-0">
         <h1 className="text-4xl sm:text-6xl font-bold mb-4 text-foreground">
           Build your idea
         </h1>
