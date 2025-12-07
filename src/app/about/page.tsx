@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 import Image from 'next/image';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
 
 const AboutContent = () => {
   return (
@@ -90,19 +92,23 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className='min-h-screen'>
-      <ScrollExpandMedia
-        mediaType='image'
-        mediaSrc='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1280&h=720&fit=crop&q=80'
-        bgImageSrc='https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80'
-        title='About Stratwell'
-        date='Our Story'
-        scrollToExpand='Scroll to Learn More'
-        textBlend={false}
-      >
-        <AboutContent />
-      </ScrollExpandMedia>
-    </div>
+    <main className='min-h-screen bg-background'>
+      <Header />
+      <div className='min-h-screen'>
+        <ScrollExpandMedia
+          mediaType='image'
+          mediaSrc='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1280&h=720&fit=crop&q=80'
+          bgImageSrc='https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80'
+          title='About Stratwell'
+          date='Our Story'
+          scrollToExpand='Scroll to Learn More'
+          textBlend={false}
+        >
+          <AboutContent />
+        </ScrollExpandMedia>
+      </div>
+      <Footer />
+    </main>
   );
 }
 
