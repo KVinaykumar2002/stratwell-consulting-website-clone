@@ -15,6 +15,7 @@ import TeamCommunitySection from "@/components/sections/team-community";
 import ExpertiseShowcaseSection from "@/components/sections/expertise-showcase";
 import GlobalReachSection from "@/components/sections/global-reach";
 import GlobalNetworkSection from "@/components/sections/global-network";
+import FeaturesAccordionSection from "@/components/sections/features-accordion";
 import CurvedLoop from "@/components/CurvedLoop";
 
 export default function Home() {
@@ -51,6 +52,7 @@ export default function Home() {
         />
       </div>
       <AboutSection />
+      <FeaturesAccordionSection />
       <ExpertiseShowcaseSection />
       <ApproachSection />
       <GlobalReachSection />
