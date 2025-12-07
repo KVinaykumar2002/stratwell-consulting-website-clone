@@ -20,11 +20,12 @@ export default function Header() {
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1152px]">
       <div
-        className="flex items-center justify-between h-20 rounded-2xl px-4"
+        className="flex items-center justify-between h-20 rounded-2xl px-4 border border-white/10"
         style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.12)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
+          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
         }}
       >
         <Link href="/" className="relative h-[48px] w-[164px] flex-shrink-0">
